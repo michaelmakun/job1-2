@@ -7,10 +7,14 @@
 <table class="table table-boldered">
   <% @jobs.each do |job| %>
   <tr>
-    <td><%= link_to(job.title, admin_job_path(job)) %></td>
     <td>
-      <%= link_to("编缉职位", edit_admin_job_path(job), :class => "btn btn-success btn-sm") %>
-      <%= link_to("删除职位", admin_job_path(job), :method => :delete, :class => "btn btn-danger btn-sm", :data => { :confirm => "Are you sure?"}) %>
+      <%= render_job_status(job) %>
+
+      <%= link_to(job.title, admin_job_path(job)) %>
+    </td>
+    <td>
+      <%= link_to("编缉职位", edit_admin_job_path(job), :class => "btn btn-success btn-xs") %>
+      <%= link_to("删除职位", admin_job_path(job), :method => :delete, :class => "btn btn-danger btn-xs", :data => { :confirm => "Are you sure?"}) %>
     </td>
     <td><%= job.created_at %></td>
   </tr>
